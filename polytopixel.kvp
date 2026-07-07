@@ -1,0 +1,39 @@
+# PolyToPixel AMP Generic Module template (Pass 0.093)
+# Source-of-truth for a future public AMPTemplates repository export.
+# Do not commit registry tokens, Cloudflare secrets, or tunnel tokens in this package.
+
+Meta.DisplayName=PolyToPixel
+Meta.Description=PolyToPixel cloud pilot on private GHCR image with external Cloudflare Tunnel
+Meta.OS=2
+Meta.Author=Cart Horse Studios
+Meta.URL=https://github.com/warguy500/PolyToPixel
+Meta.ConfigRoot=polytopixel
+Meta.ConfigManifest=polytopixelconfig.json
+Meta.MetaConfigManifest=polytopixelmetaconfig.json
+Meta.SpecificDockerImage=ghcr.io/warguy500/polytopixel:{{$ImageTag}}
+Meta.ContainerPolicy=RequiredOnLinux
+Meta.MinimumRAMMB=8192
+Meta.RecommendedRAMMB=8192
+Meta.MaximumRAMMB=12288
+Meta.MinimumCPUs=4
+Meta.RecommendedCPUs=4
+
+Application.DisplayName=PolyToPixel
+Application.ApplicationPort1=21617
+Application.ApplicationIPBinding=127.0.0.1
+Application.ForceIPBinding=true
+Application.AdminMethod=PinballWizard
+Application.HasReadableConsole=true
+Application.HasWriteableConsole=false
+Application.ExitMethod=SIGTERM
+Application.RapidStartup=false
+Application.CommandLineArgs=
+Application.EnvironmentVariables={"SPRITESMITH_ENV":"production","SPRITESMITH_HOST":"127.0.0.1","SPRITESMITH_PORT":"{{$ApplicationPort1}}","SPRITESMITH_DATA_ROOT":"/workspace/spritesmith-data","SPRITESMITH_PROJECTS_DIR":"/workspace/spritesmith-data/projects","SPRITESMITH_CACHE_ROOT":"/workspace/spritesmith-cache","SPRITESMITH_LOG_ROOT":"/workspace/spritesmith-data/logs","SPRITESMITH_TELEMETRY_DIR":"/workspace/spritesmith-data/telemetry","SPRITESMITH_TEMP_ROOT":"/workspace/spritesmith-data/tmp","SPRITESMITH_BACKUP_DEST_ROOT":"/workspace/polytopixel-backups","SPRITESMITH_AUTH_MODE":"cloudflare_access","SPRITESMITH_CLOUDFLARE_ACCESS_TEAM_DOMAIN":"{{$CloudflareAccessTeamDomain}}","SPRITESMITH_CLOUDFLARE_ACCESS_AUD":"{{$CloudflareAccessAudience}}","SPRITESMITH_CLOUDFLARE_TUNNEL_ENABLED":"{{$BundledCloudflaredEnabled}}","SPRITESMITH_GPU_REQUIRED":"true","SPRITESMITH_HEAVY_JOB_CONCURRENCY":"1","SPRITESMITH_SERVE_FRONTEND":"1"}
+
+Console.LiveServerConnectionMessageRegex=
+Console.UserJoinRegex=
+Console.UserLeaveRegex=
+Console.UserChatRegex=
+Console.UpdateAvailableRegex=
+Console.MetricsRegex=
+Console.HideFromConsoleRegex=

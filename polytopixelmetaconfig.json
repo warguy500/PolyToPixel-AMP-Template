@@ -1,0 +1,22 @@
+[
+  {
+    "ConfigFile": "polytopixel.env",
+    "ConfigType": "kvp",
+    "ConfigFormat": "{0}={1}",
+    "Subsections": [
+      {
+        "Heading": "$root",
+        "SettingMappings": {
+          "ImageTag": "IMAGE_TAG",
+          "RegistryUsername": "REGISTRY_USERNAME",
+          "RegistryToken": "REGISTRY_TOKEN",
+          "ApplicationPort1": "APPLICATION_PORT",
+          "CloudflareAccessTeamDomain": "CLOUDFLARE_ACCESS_TEAM_DOMAIN",
+          "CloudflareAccessAudience": "CLOUDFLARE_ACCESS_AUDIENCE",
+          "BundledCloudflaredEnabled": "BUNDLED_CLOUDFLARED_ENABLED",
+          "HealthCheckPath": "HEALTH_CHECK_PATH"
+        }
+      }
+    ]
+  }
+]

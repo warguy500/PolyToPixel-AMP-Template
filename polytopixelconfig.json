@@ -1,0 +1,90 @@
+[
+  {
+    "DisplayName": "Container Image Tag",
+    "Category": "PolyToPixel: Container Registry",
+    "Description": "Immutable GHCR image tag. Example: git-a1a4adc35077fac56f1f4fe08a20816195b49fed",
+    "FieldName": "ImageTag",
+    "InputType": "text",
+    "ParamFieldName": "ImageTag",
+    "DefaultValue": "git-a1a4adc35077fac56f1f4fe08a20816195b49fed",
+    "Placeholder": "git-<commit-sha>",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "GHCR Username",
+    "Category": "PolyToPixel: Container Registry",
+    "Description": "GitHub username or org for read-only ghcr.io package access. Store the PAT in AMP secrets, not in this field.",
+    "FieldName": "RegistryUsername",
+    "InputType": "text",
+    "ParamFieldName": "RegistryUsername",
+    "DefaultValue": "",
+    "Placeholder": "github-username",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "GHCR Read Token",
+    "Category": "PolyToPixel: Container Registry",
+    "Description": "Least-privilege read:packages token reference. Configure through AMP secret storage; never commit token values.",
+    "FieldName": "RegistryToken",
+    "InputType": "password",
+    "ParamFieldName": "RegistryToken",
+    "DefaultValue": "",
+    "Hidden": true,
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Local Application Port",
+    "Category": "PolyToPixel: Networking",
+    "Description": "Private localhost port exposed by AMP for the external Cloudflare Tunnel route.",
+    "FieldName": "ApplicationPort1",
+    "InputType": "number",
+    "ParamFieldName": "ApplicationPort1",
+    "DefaultValue": "21617",
+    "MinValue": "1024",
+    "MaxValue": "65535",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Cloudflare Access Team Domain",
+    "Category": "PolyToPixel: Authentication",
+    "Description": "Team slug (noisy-sun-2b05), hostname, or https:// issuer URL.",
+    "FieldName": "CloudflareAccessTeamDomain",
+    "InputType": "text",
+    "ParamFieldName": "CloudflareAccessTeamDomain",
+    "DefaultValue": "<your-cloudflare-access-team-domain>",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Cloudflare Access Audience",
+    "Category": "PolyToPixel: Authentication",
+    "Description": "Access application audience (aud) tag for app.polytopixel.ai.",
+    "FieldName": "CloudflareAccessAudience",
+    "InputType": "text",
+    "ParamFieldName": "CloudflareAccessAudience",
+    "DefaultValue": "<your-cloudflare-access-audience>",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Enable Bundled cloudflared Connector",
+    "Category": "PolyToPixel: Networking",
+    "Description": "Leave disabled when an external Cloudflare Tunnel routes app.polytopixel.ai to http://127.0.0.1:21617.",
+    "FieldName": "BundledCloudflaredEnabled",
+    "InputType": "checkbox",
+    "ParamFieldName": "BundledCloudflaredEnabled",
+    "DefaultValue": "0",
+    "EnumValues": {
+      "False": "0",
+      "True": "1"
+    }
+  },
+  {
+    "DisplayName": "Health Check Path",
+    "Category": "PolyToPixel: Operations",
+    "Description": "Readiness endpoint used for operational validation.",
+    "FieldName": "HealthCheckPath",
+    "InputType": "text",
+    "ParamFieldName": "HealthCheckPath",
+    "DefaultValue": "/health/ready",
+    "EnumValues": {}
+  }
+]
