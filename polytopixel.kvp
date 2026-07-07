@@ -3,7 +3,7 @@
 # Do not commit registry tokens, Cloudflare secrets, or tunnel tokens in this package.
 
 Meta.DisplayName=PolyToPixel
-Meta.Description=PolyToPixel cloud pilot on private GHCR image with external Cloudflare Tunnel
+Meta.Description=PolyToPixel cloud pilot on private GHCR image with bundled Cloudflare Tunnel connector
 Meta.OS=2
 Meta.Author=Cart Horse Studios
 Meta.URL=https://github.com/warguy500/PolyToPixel
@@ -28,7 +28,7 @@ Application.HasWriteableConsole=false
 Application.ExitMethod=SIGTERM
 Application.RapidStartup=false
 Application.CommandLineArgs=
-Application.EnvironmentVariables={"SPRITESMITH_ENV":"production","SPRITESMITH_HOST":"127.0.0.1","SPRITESMITH_PORT":"{{$ApplicationPort1}}","SPRITESMITH_DATA_ROOT":"/workspace/spritesmith-data","SPRITESMITH_PROJECTS_DIR":"/workspace/spritesmith-data/projects","SPRITESMITH_CACHE_ROOT":"/workspace/spritesmith-cache","SPRITESMITH_LOG_ROOT":"/workspace/spritesmith-data/logs","SPRITESMITH_TELEMETRY_DIR":"/workspace/spritesmith-data/telemetry","SPRITESMITH_TEMP_ROOT":"/workspace/spritesmith-data/tmp","SPRITESMITH_BACKUP_DEST_ROOT":"/workspace/polytopixel-backups","SPRITESMITH_AUTH_MODE":"cloudflare_access","SPRITESMITH_CLOUDFLARE_ACCESS_TEAM_DOMAIN":"{{$CloudflareAccessTeamDomain}}","SPRITESMITH_CLOUDFLARE_ACCESS_AUD":"{{$CloudflareAccessAudience}}","SPRITESMITH_CLOUDFLARE_TUNNEL_ENABLED":"{{$BundledCloudflaredEnabled}}","SPRITESMITH_GPU_REQUIRED":"true","SPRITESMITH_HEAVY_JOB_CONCURRENCY":"1","SPRITESMITH_SERVE_FRONTEND":"1"}
+Application.EnvironmentVariables={"SPRITESMITH_ENV":"production","SPRITESMITH_HOST":"127.0.0.1","SPRITESMITH_PORT":"{{$ApplicationPort1}}","SPRITESMITH_DATA_ROOT":"/workspace/spritesmith-data","SPRITESMITH_PROJECTS_DIR":"/workspace/spritesmith-data/projects","SPRITESMITH_CACHE_ROOT":"/workspace/spritesmith-cache","SPRITESMITH_LOG_ROOT":"/workspace/spritesmith-data/logs","SPRITESMITH_TELEMETRY_DIR":"/workspace/spritesmith-data/telemetry","SPRITESMITH_TEMP_ROOT":"/workspace/spritesmith-data/tmp","SPRITESMITH_BACKUP_DEST_ROOT":"/workspace/polytopixel-backups","SPRITESMITH_AUTH_MODE":"cloudflare_access","SPRITESMITH_CLOUDFLARE_ACCESS_TEAM_DOMAIN":"{{$CloudflareAccessTeamDomain}}","SPRITESMITH_CLOUDFLARE_ACCESS_AUD":"{{$CloudflareAccessAudience}}","SPRITESMITH_CLOUDFLARE_TUNNEL_ENABLED":"{{$BundledCloudflaredEnabled}}","CLOUDFLARE_TUNNEL_TOKEN":"{{$CloudflareTunnelToken}}","SPRITESMITH_GPU_REQUIRED":"false","SPRITESMITH_HEAVY_JOB_CONCURRENCY":"1","SPRITESMITH_SERVE_FRONTEND":"1"}
 
 Console.LiveServerConnectionMessageRegex=
 Console.UserJoinRegex=

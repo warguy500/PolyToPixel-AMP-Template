@@ -5,7 +5,7 @@ PolyToPixel runs on CubeCoders AMP Generic Module using the private GHCR pilot i
 ## Architecture
 
 - **AMP instance** runs `ghcr.io/warguy500/polytopixel:<image-tag>` with localhost binding on port **21617**.
-- **External Cloudflare Tunnel** (not bundled by default) routes `app.polytopixel.ai` to `http://127.0.0.1:21617`.
+- **Bundled cloudflared connector** (enabled by default) publishes `app.polytopixel.ai` to `http://127.0.0.1:21617` inside the container.
 - **Cloudflare Access** protects the public hostname. Production identity example: `polytopixel.admin@gmail.com`.
 - **Shared workspace** label in the UI: `Cart Horse Studios Shared`.
 - **Persistent state** survives image replacement through AMP instance datastore bind mounts.
@@ -29,7 +29,7 @@ These files are the source for a future public `AMPTemplates` export. They conta
 | CPU | 4 cores |
 | RAM | 8 GB normal, 12 GB hard ceiling |
 | Disk | Reserve persistent datastore on RAID-backed storage (about 800 GB free on target host) |
-| GPU | Server GPU is priority route for heavy jobs (worker routing contract only in Pass 0.093) |
+| GPU | AMP CPU control plane: `SPRITESMITH_GPU_REQUIRED=false`. Server GPU is priority route for heavy jobs via worker routing (Pass 0.094/0.095). |
 
 ## Health
 

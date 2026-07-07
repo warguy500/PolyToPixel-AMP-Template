@@ -35,7 +35,7 @@
   {
     "DisplayName": "Local Application Port",
     "Category": "PolyToPixel: Networking",
-    "Description": "Private localhost port exposed by AMP for the external Cloudflare Tunnel route.",
+    "Description": "Private localhost port for the bundled cloudflared connector origin inside the container.",
     "FieldName": "ApplicationPort1",
     "InputType": "number",
     "ParamFieldName": "ApplicationPort1",
@@ -67,15 +67,26 @@
   {
     "DisplayName": "Enable Bundled cloudflared Connector",
     "Category": "PolyToPixel: Networking",
-    "Description": "Leave disabled when an external Cloudflare Tunnel routes app.polytopixel.ai to http://127.0.0.1:21617.",
+    "Description": "Enable the bundled cloudflared connector inside the PolyToPixel container. The connector publishes app.polytopixel.ai to http://127.0.0.1:21617.",
     "FieldName": "BundledCloudflaredEnabled",
     "InputType": "checkbox",
     "ParamFieldName": "BundledCloudflaredEnabled",
-    "DefaultValue": "0",
+    "DefaultValue": "1",
     "EnumValues": {
       "False": "0",
       "True": "1"
     }
+  },
+  {
+    "DisplayName": "Cloudflare Tunnel Token",
+    "Category": "PolyToPixel: Networking",
+    "Description": "Token for the PolyToPixel tunnel. Enter through AMP password storage; never commit the token.",
+    "FieldName": "CloudflareTunnelToken",
+    "InputType": "password",
+    "ParamFieldName": "CloudflareTunnelToken",
+    "DefaultValue": "",
+    "Hidden": true,
+    "EnumValues": {}
   },
   {
     "DisplayName": "Health Check Path",

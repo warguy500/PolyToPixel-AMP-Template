@@ -9,8 +9,8 @@
 - [ ] Configure bind mounts per `storage-mapping.md`
 - [ ] Set `ApplicationPort1=21617` and `SPRITESMITH_HOST=127.0.0.1`
 - [ ] Set Cloudflare Access team domain and audience placeholders from Zero Trust
-- [ ] Keep `BUNDLED_CLOUDFLARED_ENABLED=0` and `SPRITESMITH_CLOUDFLARE_TUNNEL_ENABLED=0`
-- [ ] Configure external Cloudflare Tunnel route `app.polytopixel.ai -> http://127.0.0.1:21617`
+- [ ] Enable bundled cloudflared: `BUNDLED_CLOUDFLARED_ENABLED=1` and `SPRITESMITH_CLOUDFLARE_TUNNEL_ENABLED=1`
+- [ ] Configure `CloudflareTunnelToken` through AMP password storage (never commit the token)
 - [ ] Do not expose container port 8000 publicly
 - [ ] Start instance and verify `GET http://127.0.0.1:21617/health/ready`
 - [ ] Sign in through Cloudflare Access as `polytopixel.admin@gmail.com`

@@ -14,7 +14,8 @@
           "CloudflareAccessTeamDomain": "CLOUDFLARE_ACCESS_TEAM_DOMAIN",
           "CloudflareAccessAudience": "CLOUDFLARE_ACCESS_AUDIENCE",
           "BundledCloudflaredEnabled": "BUNDLED_CLOUDFLARED_ENABLED",
-          "HealthCheckPath": "HEALTH_CHECK_PATH"
+          "HealthCheckPath": "HEALTH_CHECK_PATH",
+          "CloudflareTunnelToken": "CLOUDFLARE_TUNNEL_TOKEN"
         }
       }
     ]
