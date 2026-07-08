@@ -7,8 +7,9 @@
       {
         "Heading": "$root",
         "SettingMappings": {
-          "RegistryUsername": "REGISTRY_USERNAME",
-          "RegistryToken": "REGISTRY_TOKEN",
+          "GitHubReleaseToken": "POLYTOPIXEL_GITHUB_TOKEN",
+          "ReleaseTagOverride": "POLYTOPIXEL_RELEASE_TAG",
+          "ReleaseAssetSha256": "POLYTOPIXEL_RELEASE_ZIP_SHA256",
           "ApplicationPort1": "APPLICATION_PORT",
           "CloudflareAccessTeamDomain": "CLOUDFLARE_ACCESS_TEAM_DOMAIN",
           "CloudflareAccessAudience": "CLOUDFLARE_ACCESS_AUDIENCE",

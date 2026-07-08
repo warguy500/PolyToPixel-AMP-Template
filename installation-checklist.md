@@ -4,14 +4,16 @@
 - [ ] 4 CPU cores and 8 GB RAM allocated (12 GB ceiling configured)
 - [ ] RAID-backed storage with instance datastore on dedicated paths
 - [ ] Import `deploy/amp/polytopixel/` template files into AMP (or future AMPTemplates repo)
-- [ ] Create GHCR read-only token (`read:packages` least privilege) and store in AMP secrets
-- [ ] Set `ImageTag` to verified digest tag `git-a1a4adc35077fac56f1f4fe08a20816195b49fed`
+- [ ] **Pass 0.098 cutover:** confirm `Meta.SpecificDockerImage` points at the immutable public runtime `ghcr.io/warguy500/polytopixel-runtime:runtime-git-083c730cb290a55ef2158df1f8dc0a0acc8e0b00`
+- [ ] Configure GitHub Release Token (`read` access to private `polytopixel_release.zip` assets) through AMP password storage
+- [ ] Confirm `ReleaseTagOverride` is pinned to `git-505af99ea71abd57949c481e6f213ed879b20e13` (latest release resolution is forbidden in production)
+- [ ] Confirm `ReleaseAssetSha256` is pinned to `5733db252b096d5f10d609064362c8c8be7d5b32fc785d982554aa48d2d79de6`
 - [ ] Configure bind mounts per `storage-mapping.md`
 - [ ] Set `ApplicationPort1=21617` and `SPRITESMITH_HOST=127.0.0.1`
 - [ ] Set Cloudflare Access team domain and audience placeholders from Zero Trust
 - [ ] Enable bundled cloudflared: `BUNDLED_CLOUDFLARED_ENABLED=1` and `SPRITESMITH_CLOUDFLARE_TUNNEL_ENABLED=1`
 - [ ] Configure `CloudflareTunnelToken` through AMP password storage (never commit the token)
 - [ ] Do not expose container port 8000 publicly
-- [ ] Start instance and verify `GET http://127.0.0.1:21617/health/ready`
+- [ ] **Start/Restart** instance (do not use AMP Update) and verify `GET http://127.0.0.1:21617/health/ready`
 - [ ] Sign in through Cloudflare Access as `polytopixel.admin@gmail.com`
 - [ ] Confirm shared workspace label `Cart Horse Studios Shared` appears in session payload

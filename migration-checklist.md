@@ -2,7 +2,7 @@
 
 ## Preconditions
 
-- [ ] Verified image: `ghcr.io/warguy500/polytopixel:git-a1a4adc35077fac56f1f4fe08a20816195b49fed`
+- [ ] Verified image: `ghcr.io/warguy500/polytopixel:git-1eff0b915f5b9974f5f3dc3544d47e9e58375c22`
 - [ ] Verified digest: `sha256:e31174946a8526aae7c34d2a805ff8788c8d3bed2e5dc24b9a9952ba4ff86cf8`
 - [ ] Migration archive: `polytopixel-data-20260706T225931Z.tar.gz`
 - [ ] Archive SHA-256: `14569b86e57e2a9b888cc40f141ce5cca9dfb2278ece47f9a64b656d9e4d7303`
