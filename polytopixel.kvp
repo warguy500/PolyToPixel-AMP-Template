@@ -7,6 +7,7 @@ Meta.Description=PolyToPixel cloud pilot on private GHCR image with bundled Clou
 Meta.OS=2
 Meta.Author=Cart Horse Studios
 Meta.URL=https://github.com/warguy500/PolyToPixel
+Meta.DisplayImageSource=url:https://github.com/warguy500.png
 Meta.AppConfigId=26d0333e-25ed-4196-89fb-44353b3b7b40
 Meta.ConfigRoot=polytopixel.kvp
 Meta.ConfigVersion=1
