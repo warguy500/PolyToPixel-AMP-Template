@@ -1,16 +1,5 @@
 [
   {
-    "DisplayName": "Container Image Tag",
-    "Category": "PolyToPixel: Container Registry",
-    "Description": "Immutable GHCR image tag. Example: git-a1a4adc35077fac56f1f4fe08a20816195b49fed",
-    "FieldName": "ImageTag",
-    "InputType": "text",
-    "ParamFieldName": "ImageTag",
-    "DefaultValue": "git-a1a4adc35077fac56f1f4fe08a20816195b49fed",
-    "Placeholder": "git-<commit-sha>",
-    "EnumValues": {}
-  },
-  {
     "DisplayName": "GHCR Username",
     "Category": "PolyToPixel: Container Registry",
     "Description": "GitHub username or org for read-only ghcr.io package access. Store the PAT in AMP secrets, not in this field.",
