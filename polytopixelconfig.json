@@ -1,7 +1,8 @@
 [
   {
     "DisplayName": "GitHub Release Token",
-    "Category": "PolyToPixel: Release Download",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Release Download:cloud_download:1",
     "Description": "Read-only GitHub token used to download private polytopixel_release.zip assets from GitHub Releases. Store in AMP secret storage only; never commit token values.",
     "FieldName": "GitHubReleaseToken",
     "InputType": "password",
@@ -13,7 +14,8 @@
   },
   {
     "DisplayName": "Release Tag Override",
-    "Category": "PolyToPixel: Release Download",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Release Download:cloud_download:1",
     "Description": "Immutable GitHub release tag (git-<full-sha>) for the private polytopixel_release.zip bundle. This must be pinned; do not use GitHub latest release resolution in production.",
     "FieldName": "ReleaseTagOverride",
     "InputType": "text",
@@ -25,7 +27,8 @@
   },
   {
     "DisplayName": "Release Asset SHA-256",
-    "Category": "PolyToPixel: Release Download",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Release Download:cloud_download:1",
     "Description": "Expected SHA-256 of the outer polytopixel_release.zip asset for the pinned release tag. The bootstrap deployer verifies this checksum before extraction.",
     "FieldName": "ReleaseAssetSha256",
     "InputType": "text",
@@ -36,8 +39,31 @@
     "EnumValues": {}
   },
   {
+    "DisplayName": "Cloudflare Access Team Domain",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Authentication:vpn_key:2",
+    "Description": "Team slug (noisy-sun-2b05), hostname, or https:// issuer URL.",
+    "FieldName": "CloudflareAccessTeamDomain",
+    "InputType": "text",
+    "ParamFieldName": "CloudflareAccessTeamDomain",
+    "DefaultValue": "<your-cloudflare-access-team-domain>",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Cloudflare Access Audience",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Authentication:vpn_key:2",
+    "Description": "Access application audience (aud) tag for app.polytopixel.ai.",
+    "FieldName": "CloudflareAccessAudience",
+    "InputType": "text",
+    "ParamFieldName": "CloudflareAccessAudience",
+    "DefaultValue": "<your-cloudflare-access-audience>",
+    "EnumValues": {}
+  },
+  {
     "DisplayName": "Local Application Port",
-    "Category": "PolyToPixel: Networking",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Networking:dns:3",
     "Description": "Private localhost port for the bundled cloudflared connector origin inside the container.",
     "FieldName": "ApplicationPort1",
     "InputType": "number",
@@ -48,28 +74,9 @@
     "EnumValues": {}
   },
   {
-    "DisplayName": "Cloudflare Access Team Domain",
-    "Category": "PolyToPixel: Authentication",
-    "Description": "Team slug (noisy-sun-2b05), hostname, or https:// issuer URL.",
-    "FieldName": "CloudflareAccessTeamDomain",
-    "InputType": "text",
-    "ParamFieldName": "CloudflareAccessTeamDomain",
-    "DefaultValue": "<your-cloudflare-access-team-domain>",
-    "EnumValues": {}
-  },
-  {
-    "DisplayName": "Cloudflare Access Audience",
-    "Category": "PolyToPixel: Authentication",
-    "Description": "Access application audience (aud) tag for app.polytopixel.ai.",
-    "FieldName": "CloudflareAccessAudience",
-    "InputType": "text",
-    "ParamFieldName": "CloudflareAccessAudience",
-    "DefaultValue": "<your-cloudflare-access-audience>",
-    "EnumValues": {}
-  },
-  {
     "DisplayName": "Enable Bundled cloudflared Connector",
-    "Category": "PolyToPixel: Networking",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Networking:dns:3",
     "Description": "Enable the bundled cloudflared connector inside the PolyToPixel container. The connector publishes app.polytopixel.ai to http://127.0.0.1:21617.",
     "FieldName": "BundledCloudflaredEnabled",
     "InputType": "checkbox",
@@ -82,7 +89,8 @@
   },
   {
     "DisplayName": "Cloudflare Tunnel Token",
-    "Category": "PolyToPixel: Networking",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Networking:dns:3",
     "Description": "Token for the PolyToPixel tunnel. Enter through AMP password storage; never commit the token.",
     "FieldName": "CloudflareTunnelToken",
     "InputType": "password",
@@ -93,7 +101,8 @@
   },
   {
     "DisplayName": "Health Check Path",
-    "Category": "PolyToPixel: Operations",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Operations:monitor_heart:4",
     "Description": "Readiness endpoint used for operational validation.",
     "FieldName": "HealthCheckPath",
     "InputType": "text",
