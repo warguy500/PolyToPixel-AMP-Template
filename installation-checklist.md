@@ -3,11 +3,12 @@
 - [ ] Ubuntu 24.04 x86_64 host with AMP Generic Module available
 - [ ] 4 CPU cores and 8 GB RAM allocated (12 GB ceiling configured)
 - [ ] RAID-backed storage with instance datastore on dedicated paths
-- [ ] Import `deploy/amp/polytopixel/` template files into AMP (or refresh `PolyToPixel-AMP-Template` at ConfigVersion **8**)
+- [ ] Import `deploy/amp/polytopixel/` template files into AMP (or refresh `PolyToPixel-AMP-Template` at ConfigVersion **9**)
 - [ ] **Pass 0.101 cutover:** confirm `Meta.SpecificDockerImage` points at `ghcr.io/warguy500/polytopixel-runtime:runtime-git-328a94fca22e7e5384b1664b9732eedc0a8db9e4`
 - [ ] **Pass 0.102:** confirm configuration groups open without **Data Binding Failure** (`unsupported pseudo: ReleaseDownload` must not occur)
 - [ ] **Pass 0.103:** confirm **GitHub Release Token** and **Cloudflare Tunnel Token** appear as visible masked password fields (not hidden)
-- [ ] Confirm Generic Module launch: `Application.ExecutableLinux=/bin/bash` and `Application.CommandLineArgs=control/amp_bootstrap_start.sh`
+- [ ] **Pass 0.104:** confirm Generic Module launch uses `/bin/bash /opt/polytopixel-bootstrap/amp_bootstrap_start.sh` (not relative `control/amp_bootstrap_start.sh`)
+- [ ] Confirm `POLYTOPIXEL_DEPLOY_ROOT` maps to `{{$FullRootDir}}` in `Application.EnvironmentVariables`
 - [ ] Do **not** use superseded runtime `runtime-git-083c730cb290a55ef2158df1f8dc0a0acc8e0b00`
 - [ ] Configure GitHub Release Token through the visible **masked password field** in the Release Download group (`read` access to private `polytopixel_release.zip` assets). Never commit, log, screenshot, or CLI-embed the token.
 - [ ] Confirm `ReleaseTagOverride` is pinned to `git-505af99ea71abd57949c481e6f213ed879b20e13` (latest release resolution is forbidden in production)
