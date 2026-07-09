@@ -3,7 +3,7 @@
 # Do not commit registry tokens, Cloudflare secrets, or tunnel tokens in this package.
 
 Meta.DisplayName=PolyToPixel
-Meta.Description=PolyToPixel AMP with public runtime image and pinned private GitHub release bundle (Pass 0.098)
+Meta.Description=PolyToPixel AMP with AMP-compatible public runtime image and pinned private GitHub release bundle (Pass 0.101)
 Meta.OS=Linux
 Meta.AarchSupport=Unsupported
 Meta.Arch=x86_64
@@ -15,7 +15,7 @@ Meta.ConfigManifest=polytopixelconfig.json
 Meta.MetaConfigManifest=polytopixelmetaconfig.json
 Meta.ConfigRoot=polytopixel.kvp
 Meta.MinAMPVersion=2.5.1.8
-Meta.SpecificDockerImage=ghcr.io/warguy500/polytopixel-runtime:runtime-git-083c730cb290a55ef2158df1f8dc0a0acc8e0b00
+Meta.SpecificDockerImage=ghcr.io/warguy500/polytopixel-runtime:runtime-git-328a94fca22e7e5384b1664b9732eedc0a8db9e4
 Meta.DockerRequired=True
 Meta.DockerBaseReadOnly=False
 Meta.ContainerPolicy=RequiredOnLinux
@@ -25,8 +25,8 @@ Meta.Prerequisites=[]
 Meta.ExtraContainerPackages=[]
 Meta.ConfigReleaseState=Stable
 Meta.NoCommercialUsage=False
-Meta.ConfigVersion=5
-Meta.ReleaseNotes=Cut over AMP to public immutable runtime image and pin private GitHub Release bundle tag+SHA-256 (Pass 0.098).
+Meta.ConfigVersion=6
+Meta.ReleaseNotes=Cut over to AMP-compatible runtime image and explicit Generic Module bootstrap launch (Pass 0.101).
 Meta.BreakingReleaseNotes=
 Meta.ImportableExtensions=[]
 Meta.AppConfigId=26d0333e-25ed-4196-89fb-44353b3b7b40
@@ -46,7 +46,8 @@ Application.HasReadableConsole=true
 Application.HasWriteableConsole=false
 Application.ExitMethod=SIGTERM
 Application.RapidStartup=false
-Application.CommandLineArgs=
+Application.ExecutableLinux=/bin/bash
+Application.CommandLineArgs=control/amp_bootstrap_start.sh
 Application.EnvironmentVariables={"SPRITESMITH_ENV":"production","SPRITESMITH_HOST":"127.0.0.1","SPRITESMITH_PORT":"{{$ApplicationPort1}}","SPRITESMITH_DATA_ROOT":"/workspace/spritesmith-data","SPRITESMITH_PROJECTS_DIR":"/workspace/spritesmith-data/projects","SPRITESMITH_CACHE_ROOT":"/workspace/spritesmith-cache","SPRITESMITH_LOG_ROOT":"/workspace/spritesmith-data/logs","SPRITESMITH_TELEMETRY_DIR":"/workspace/spritesmith-data/telemetry","SPRITESMITH_TEMP_ROOT":"/workspace/spritesmith-data/tmp","SPRITESMITH_BACKUP_DEST_ROOT":"/workspace/polytopixel-backups","SPRITESMITH_AUTH_MODE":"cloudflare_access","SPRITESMITH_CLOUDFLARE_ACCESS_TEAM_DOMAIN":"{{$CloudflareAccessTeamDomain}}","SPRITESMITH_CLOUDFLARE_ACCESS_AUD":"{{$CloudflareAccessAudience}}","SPRITESMITH_CLOUDFLARE_TUNNEL_ENABLED":"{{$BundledCloudflaredEnabled}}","CLOUDFLARE_TUNNEL_TOKEN":"{{$CloudflareTunnelToken}}","SPRITESMITH_GPU_REQUIRED":"false","SPRITESMITH_HEAVY_JOB_CONCURRENCY":"1","SPRITESMITH_SERVE_FRONTEND":"1","POLYTOPIXEL_GITHUB_TOKEN":"{{$GitHubReleaseToken}}","POLYTOPIXEL_RELEASE_TAG":"{{$ReleaseTagOverride}}","POLYTOPIXEL_RELEASE_ZIP_SHA256":"{{$ReleaseAssetSha256}}","POLYTOPIXEL_GITHUB_OWNER":"warguy500","POLYTOPIXEL_GITHUB_REPO":"PolyToPixel","POLYTOPIXEL_HEALTH_CHECK_PATH":"{{$HealthCheckPath}}"}
 
 Console.LiveServerConnectionMessageRegex=

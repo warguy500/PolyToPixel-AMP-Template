@@ -1,11 +1,19 @@
-# PolyToPixel on AMP (Pass 0.093–0.098)
+# PolyToPixel on AMP (Pass 0.093–0.101)
 
 PolyToPixel runs on CubeCoders AMP Generic Module. Pass 0.094 splits deployment into:
 
 - **Public runtime image:** `ghcr.io/warguy500/polytopixel-runtime` (Blender, cloudflared, bootstrap — no app code)
 - **Private release zip:** `polytopixel_release.zip` on GitHub Releases (application layer)
 
-Pass 0.098 cuts the AMP template over to the public runtime image and pins the private release bundle to an immutable tag + outer SHA-256.
+Pass 0.101 cuts the active template over to the AMP-compatible runtime and makes Generic Module bootstrap launch explicit.
+
+## Active runtime (Pass 0.101)
+
+- **Image:** `ghcr.io/warguy500/polytopixel-runtime:runtime-git-328a94fca22e7e5384b1664b9732eedc0a8db9e4`
+- **OCI index digest:** `sha256:e8764f06b1186622ee63910d6a0124d33781ff6f6be7c6817163350cf874ff09`
+- **Application launch:** `/bin/bash control/amp_bootstrap_start.sh` after child AMP backend starts
+
+The superseded runtime tag `runtime-git-083c730cb290a55ef2158df1f8dc0a0acc8e0b00` must not be used for new instances.
 
 ## Architecture
 
@@ -27,7 +35,7 @@ Pass 0.098 cuts the AMP template over to the public runtime image and pins the p
 | `polytopixelupdates.json` | Disables AMP Update (`[]`); deploy on Start/Restart |
 | `control/` | Bootstrap script reference copies |
 
-These files are the source for a future public `AMPTemplates` export. They contain placeholders only.
+These files are synchronized to the public `PolyToPixel-AMP-Template` repository. They contain placeholders only.
 
 ## Resource guidance
 
@@ -51,6 +59,8 @@ These files are the source for a future public `AMPTemplates` export. They conta
 | **0.094** | Public AMP runtime image + private release bundle (pre-cutover template) |
 | **0.095** | Publish runtime image and private GitHub Release bundle (no template cutover yet) |
 | **0.098** | Cut over AMP template to public runtime + pinned immutable private release tag and SHA-256 |
+| **0.100** | Correct runtime Dockerfile to preserve AMP `/ampstart.sh` contract |
+| **0.101** | Cut over active template to corrected runtime + explicit Generic Module bootstrap launch; sync public template |
 
 ## Related documentation
 
@@ -59,4 +69,4 @@ These files are the source for a future public `AMPTemplates` export. They conta
 - `backup-restore-checklist.md`
 - `update-rollback-checklist.md`
 - `storage-mapping.md`
-- `../../docs/PASS_0_094_AMP_PUBLIC_RUNTIME_PRIVATE_RELEASE.md`
+- `../../docs/PASS_0_101_AMP_COMPATIBLE_RUNTIME_CUTOVER.md`
