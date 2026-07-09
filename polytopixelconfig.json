@@ -3,13 +3,12 @@
     "DisplayName": "GitHub Release Token",
     "Category": "PolyToPixel:deployed_code",
     "Subcategory": "Release Download:cloud_download:1",
-    "Description": "Read-only GitHub token used to download private polytopixel_release.zip assets from GitHub Releases. Store in AMP secret storage only; never commit token values.",
+    "Description": "Read-only GitHub token used to download private polytopixel_release.zip assets from GitHub Releases. Enter through the visible masked password field; never commit, log, screenshot, or CLI-embed token values.",
     "FieldName": "GitHubReleaseToken",
     "InputType": "password",
     "ParamFieldName": "GitHubReleaseToken",
     "IncludeInCommandLine": false,
     "DefaultValue": "",
-    "Hidden": true,
     "EnumValues": {}
   },
   {
@@ -91,12 +90,11 @@
     "DisplayName": "Cloudflare Tunnel Token",
     "Category": "PolyToPixel:deployed_code",
     "Subcategory": "Networking:dns:3",
-    "Description": "Token for the PolyToPixel tunnel. Enter through AMP password storage; never commit the token.",
+    "Description": "Token for the PolyToPixel tunnel. Enter through the visible masked password field; never commit, log, screenshot, or CLI-embed the token.",
     "FieldName": "CloudflareTunnelToken",
     "InputType": "password",
     "ParamFieldName": "CloudflareTunnelToken",
     "DefaultValue": "",
-    "Hidden": true,
     "EnumValues": {}
   },
   {
