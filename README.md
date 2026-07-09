@@ -1,4 +1,4 @@
-# PolyToPixel on AMP (Pass 0.093–0.105)
+# PolyToPixel on AMP (Pass 0.093–0.106)
 
 PolyToPixel runs on CubeCoders AMP Generic Module. Pass 0.094 splits deployment into:
 
@@ -15,13 +15,15 @@ Pass 0.104 launches bootstrap from the runtime-owned absolute path because AMP d
 
 Pass 0.105 migrates application settings from incorrect `Application.*` keys to official Generic Module `App.*` namespace so AMP honors the launch contract.
 
+Pass 0.106 corrects custom-setting env placeholder syntax and switches to direct runtime bootstrap executable launch per live AMP validation.
+
 ## Active runtime (Pass 0.101)
 
 - **Image:** `ghcr.io/warguy500/polytopixel-runtime:runtime-git-328a94fca22e7e5384b1664b9732eedc0a8db9e4`
 - **OCI index digest:** `sha256:e8764f06b1186622ee63910d6a0124d33781ff6f6be7c6817163350cf874ff09`
-- **Application launch:** `/bin/bash /opt/polytopixel-bootstrap/amp_bootstrap_start.sh` after child AMP backend starts
+- **Application launch:** `/opt/polytopixel-bootstrap/amp_bootstrap_start.sh` (direct executable with Bash shebang)
 - **Deploy root:** `POLYTOPIXEL_DEPLOY_ROOT={{$FullRootDir}}` in `App.EnvironmentVariables`
-- **ConfigVersion:** `10` (Generic Module `App.*` namespace)
+- **ConfigVersion:** `11` (runtime env expansion and live launch contract)
 
 The superseded runtime tag `runtime-git-083c730cb290a55ef2158df1f8dc0a0acc8e0b00` must not be used for new instances.
 
@@ -86,6 +88,7 @@ These files are synchronized to the public `PolyToPixel-AMP-Template` repository
 | **0.103** | Expose secret fields as visible masked password inputs; ConfigVersion 8 |
 | **0.104** | Launch bootstrap from runtime absolute path; ConfigVersion 9 |
 | **0.105** | Migrate `Application.*` to `App.*` namespace; ConfigVersion 10 |
+| **0.106** | Direct bootstrap executable, `{{FieldName}}` env placeholders, ForceIPBinding=False; ConfigVersion 11 |
 
 ## Related documentation
 
@@ -98,3 +101,4 @@ These files are synchronized to the public `PolyToPixel-AMP-Template` repository
 - `../../docs/PASS_0_103_AMP_SECRET_FIELDS_VISIBLE.md`
 - `../../docs/PASS_0_104_AMP_BOOTSTRAP_LAUNCH_PATH.md`
 - `../../docs/PASS_0_105_AMP_GENERIC_APP_NAMESPACE.md`
+- `../../docs/PASS_0_106_AMP_RUNTIME_ENV_EXPANSION.md`
