@@ -107,5 +107,172 @@
     "ParamFieldName": "HealthCheckPath",
     "DefaultValue": "/health/ready",
     "EnumValues": {}
+  },
+  {
+    "DisplayName": "Enable Remote SPAR3D Execution",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Remote SPAR3D:monitor_heart:5",
+    "Description": "Route source_model_generation SPAR3D jobs through registered desktop or RunPod workers instead of local execution.",
+    "FieldName": "RemoteSourceModelExecutionEnabled",
+    "InputType": "checkbox",
+    "ParamFieldName": "RemoteSourceModelExecutionEnabled",
+    "IncludeInCommandLine": false,
+    "DefaultValue": "0",
+    "EnumValues": {
+      "False": "0",
+      "True": "1"
+    }
+  },
+  {
+    "DisplayName": "Desktop Worker Secret",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Remote SPAR3D:monitor_heart:5",
+    "Description": "Shared secret used only by outbound desktop workers when registering, polling, and submitting results.",
+    "FieldName": "DesktopWorkerSecret",
+    "InputType": "password",
+    "ParamFieldName": "DesktopWorkerSecret",
+    "IncludeInCommandLine": false,
+    "DefaultValue": "",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Worker Heartbeat TTL Seconds",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Remote SPAR3D:monitor_heart:5",
+    "Description": "Workers with older heartbeats are excluded from SPAR3D dispatch.",
+    "FieldName": "WorkerHeartbeatTtlSeconds",
+    "InputType": "number",
+    "ParamFieldName": "WorkerHeartbeatTtlSeconds",
+    "IncludeInCommandLine": false,
+    "DefaultValue": "60",
+    "MinValue": "5",
+    "MaxValue": "3600",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Lease Acceptance Timeout Seconds",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Remote SPAR3D:monitor_heart:5",
+    "Description": "Pending desktop leases that are not accepted within this window become dispatchable for fallback.",
+    "FieldName": "LeaseAcceptanceTimeoutSeconds",
+    "InputType": "number",
+    "ParamFieldName": "LeaseAcceptanceTimeoutSeconds",
+    "IncludeInCommandLine": false,
+    "DefaultValue": "15",
+    "MinValue": "1",
+    "MaxValue": "300",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Lease Execution Timeout Seconds",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Remote SPAR3D:monitor_heart:5",
+    "Description": "Accepted leases expire after this duration if no valid result is submitted.",
+    "FieldName": "LeaseExecutionTimeoutSeconds",
+    "InputType": "number",
+    "ParamFieldName": "LeaseExecutionTimeoutSeconds",
+    "IncludeInCommandLine": false,
+    "DefaultValue": "3600",
+    "MinValue": "60",
+    "MaxValue": "21600",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Enable RunPod Fallback",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Remote SPAR3D:monitor_heart:5",
+    "Description": "Allow RunPod Serverless fallback when no eligible desktop worker accepts the source_model_generation lease.",
+    "FieldName": "RunPodFallbackEnabled",
+    "InputType": "checkbox",
+    "ParamFieldName": "RunPodFallbackEnabled",
+    "IncludeInCommandLine": false,
+    "DefaultValue": "0",
+    "EnumValues": {
+      "False": "0",
+      "True": "1"
+    }
+  },
+  {
+    "DisplayName": "RunPod API Key",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Remote SPAR3D:monitor_heart:5",
+    "Description": "RunPod Serverless API key. Required only when RunPod fallback is enabled.",
+    "FieldName": "RunPodApiKey",
+    "InputType": "password",
+    "ParamFieldName": "RunPodApiKey",
+    "IncludeInCommandLine": false,
+    "DefaultValue": "",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "RunPod Endpoint ID",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Remote SPAR3D:monitor_heart:5",
+    "Description": "RunPod Serverless endpoint ID for the source_model_generation worker image.",
+    "FieldName": "RunPodEndpointId",
+    "InputType": "text",
+    "ParamFieldName": "RunPodEndpointId",
+    "IncludeInCommandLine": false,
+    "DefaultValue": "",
+    "Placeholder": "<endpoint-id>",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "RunPod Request Timeout Seconds",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Remote SPAR3D:monitor_heart:5",
+    "Description": "Maximum coordinator wait for a RunPod Serverless source_model_generation result.",
+    "FieldName": "RunPodRequestTimeoutSeconds",
+    "InputType": "number",
+    "ParamFieldName": "RunPodRequestTimeoutSeconds",
+    "IncludeInCommandLine": false,
+    "DefaultValue": "3600",
+    "MinValue": "60",
+    "MaxValue": "21600",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Bootstrap Owner Email",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Access Rollout:shield:6",
+    "Description": "Masked bootstrap Owner email used when account observation/enforcement is planned. Must exactly match the normalized email presented by Cloudflare Access. Leave empty while Account Rollout Mode is disabled. Never log, screenshot, or commit this value.",
+    "FieldName": "BootstrapOwnerEmail",
+    "InputType": "password",
+    "ParamFieldName": "BootstrapOwnerEmail",
+    "IncludeInCommandLine": false,
+    "DefaultValue": "",
+    "EnumValues": {}
+  },
+  {
+    "DisplayName": "Account Rollout Mode",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Access Rollout:shield:6",
+    "Description": "Internal account authorization rollout. Keep disabled for Stage A. Use observe only after the bootstrap Owner email is set and Stage B is intentional. Do not select enforce until Stage E acceptance is complete.",
+    "FieldName": "AccountRolloutMode",
+    "InputType": "select",
+    "ParamFieldName": "AccountRolloutMode",
+    "IncludeInCommandLine": false,
+    "DefaultValue": "disabled",
+    "EnumValues": {
+      "disabled": "disabled",
+      "observe": "observe",
+      "enforce": "enforce"
+    }
+  },
+  {
+    "DisplayName": "Cloudflare Synchronization Mode",
+    "Category": "PolyToPixel:deployed_code",
+    "Subcategory": "Access Rollout:shield:6",
+    "Description": "Managed Access group synchronization. Keep disabled for Stage A/B. read_only may inspect the dedicated group. enabled can perform managed-group writes and session revocation — use only after Stage D readiness.",
+    "FieldName": "CloudflareSyncMode",
+    "InputType": "select",
+    "ParamFieldName": "CloudflareSyncMode",
+    "IncludeInCommandLine": false,
+    "DefaultValue": "disabled",
+    "EnumValues": {
+      "disabled": "disabled",
+      "read_only": "read_only",
+      "enabled": "enabled"
+    }
   }
 ]

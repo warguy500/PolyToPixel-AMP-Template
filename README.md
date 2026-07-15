@@ -17,13 +17,15 @@ Pass 0.105 migrates application settings from incorrect `Application.*` keys to 
 
 Pass 0.106 corrects custom-setting env placeholder syntax and switches to direct runtime bootstrap executable launch per live AMP validation.
 
+Pass 0.146.2 exposes Access Rollout controls (masked bootstrap Owner email + account/Cloudflare mode selects) at ConfigVersion 12. Defaults remain disabled; do not enable observe/enforce/sync until following `docs/PASS_0_146_PRODUCTION_ACCESS_ROLLOUT.md`.
+
 ## Active runtime (Pass 0.101)
 
 - **Image:** `ghcr.io/warguy500/polytopixel-runtime:runtime-git-328a94fca22e7e5384b1664b9732eedc0a8db9e4`
 - **OCI index digest:** `sha256:e8764f06b1186622ee63910d6a0124d33781ff6f6be7c6817163350cf874ff09`
 - **Application launch:** `/opt/polytopixel-bootstrap/amp_bootstrap_start.sh` (direct executable with Bash shebang)
 - **Deploy root:** `POLYTOPIXEL_DEPLOY_ROOT={{$FullRootDir}}` in `App.EnvironmentVariables`
-- **ConfigVersion:** `11` (runtime env expansion and live launch contract)
+- **ConfigVersion:** `12` (Access Rollout AMP fields; prior live launch contract retained)
 
 The superseded runtime tag `runtime-git-083c730cb290a55ef2158df1f8dc0a0acc8e0b00` must not be used for new instances.
 
@@ -37,6 +39,16 @@ Configure these through **visible masked password fields** in AMP (Release Downl
 Never commit tokens, never log them, never include them in screenshots, and never place them in `App.CommandLineArgs` or other CLI argument fields. Values flow only through AMP masked password fields into `App.EnvironmentVariables`.
 
 **AMP Event Log risk:** changing password fields may log values in plaintext (unresolved blocker). Do not enter replacement production tokens during namespace-only validation.
+
+## Access Rollout (Pass 0.146.2)
+
+Configure under **PolyToPixel → Access Rollout** (never commit real values):
+
+- **Bootstrap Owner Email** — masked password → `SPRITESMITH_BOOTSTRAP_OWNER_EMAIL`. Must exactly match the normalized Cloudflare Access email. Leave empty while Account Rollout Mode is `disabled`. Never log or display the configured value.
+- **Account Rollout Mode** — `disabled` (default) / `observe` / `enforce` → `SPRITESMITH_ACCOUNT_ROLLOUT_MODE`. Do not select `enforce` until Stage E.
+- **Cloudflare Synchronization Mode** — `disabled` (default) / `read_only` / `enabled` → `SPRITESMITH_CLOUDFLARE_SYNC_MODE`. `enabled` can perform managed-group writes and session revocation.
+
+Stage B procedure: keep sync disabled → enter Owner email → set observe → restart once → verify Owner/Users → run Stage B validation → roll back to disabled immediately if Owner verification fails.
 
 ## Architecture
 
@@ -89,6 +101,7 @@ These files are synchronized to the public `PolyToPixel-AMP-Template` repository
 | **0.104** | Launch bootstrap from runtime absolute path; ConfigVersion 9 |
 | **0.105** | Migrate `Application.*` to `App.*` namespace; ConfigVersion 10 |
 | **0.106** | Direct bootstrap executable, `{{FieldName}}` env placeholders, ForceIPBinding=False; ConfigVersion 11 |
+| **0.146.2** | Access Rollout AMP fields (bootstrap Owner email + rollout/sync modes); ConfigVersion 12 |
 
 ## Related documentation
 

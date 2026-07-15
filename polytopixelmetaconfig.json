@@ -15,7 +15,10 @@
           "CloudflareAccessAudience": "CLOUDFLARE_ACCESS_AUDIENCE",
           "BundledCloudflaredEnabled": "BUNDLED_CLOUDFLARED_ENABLED",
           "CloudflareTunnelToken": "CLOUDFLARE_TUNNEL_TOKEN",
-          "HealthCheckPath": "HEALTH_CHECK_PATH"
+          "HealthCheckPath": "HEALTH_CHECK_PATH",
+          "BootstrapOwnerEmail": "SPRITESMITH_BOOTSTRAP_OWNER_EMAIL",
+          "AccountRolloutMode": "SPRITESMITH_ACCOUNT_ROLLOUT_MODE",
+          "CloudflareSyncMode": "SPRITESMITH_CLOUDFLARE_SYNC_MODE"
         }
       }
     ]

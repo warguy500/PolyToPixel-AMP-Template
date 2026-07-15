@@ -3,7 +3,7 @@
 - [ ] Ubuntu 24.04 x86_64 host with AMP Generic Module available
 - [ ] 4 CPU cores and 8 GB RAM allocated (12 GB ceiling configured)
 - [ ] RAID-backed storage with instance datastore on dedicated paths
-- [ ] Import `deploy/amp/polytopixel/` template files into AMP (or refresh `PolyToPixel-AMP-Template` at ConfigVersion **11**)
+- [ ] Import `deploy/amp/polytopixel/` template files into AMP (or refresh `PolyToPixel-AMP-Template` at ConfigVersion **12**)
 - [ ] **Pass 0.101 cutover:** confirm `Meta.SpecificDockerImage` points at `ghcr.io/warguy500/polytopixel-runtime:runtime-git-328a94fca22e7e5384b1664b9732eedc0a8db9e4`
 - [ ] **Pass 0.102:** confirm configuration groups open without **Data Binding Failure** (`unsupported pseudo: ReleaseDownload` must not occur)
 - [ ] **Pass 0.103:** confirm **GitHub Release Token** and **Cloudflare Tunnel Token** appear as visible masked password fields (not hidden)
@@ -11,6 +11,8 @@
 - [ ] **Pass 0.105:** confirm live `GenericModule.kvp` uses `App.*` keys (not legacy `Application.*`)
 - [ ] **Pass 0.106:** confirm `App.ExecutableLinux=/opt/polytopixel-bootstrap/amp_bootstrap_start.sh` with empty CLI args (not `/bin/bash`)
 - [ ] **Pass 0.106:** confirm `App.ForceIPBinding=False`, `App.ApplicationIPBinding=0.0.0.0`, and custom env placeholders use `{{FieldName}}`
+- [ ] **Pass 0.146.2:** confirm **Access Rollout** group shows Bootstrap Owner Email (masked), Account Rollout Mode (`disabled` default), Cloudflare Synchronization Mode (`disabled` default)
+- [ ] **Pass 0.146.2:** confirm `App.EnvironmentVariables` maps `SPRITESMITH_BOOTSTRAP_OWNER_EMAIL={{BootstrapOwnerEmail}}`, `SPRITESMITH_ACCOUNT_ROLLOUT_MODE={{AccountRolloutMode}}`, `SPRITESMITH_CLOUDFLARE_SYNC_MODE={{CloudflareSyncMode}}`
 - [ ] Confirm `POLYTOPIXEL_DEPLOY_ROOT` maps to `{{$FullRootDir}}` in `App.EnvironmentVariables`
 - [ ] **Pass 0.106:** after start with blank secrets, confirm bootstrap log shows `Token configured: no` and setup holding server on `127.0.0.1:21617`
 - [ ] Do **not** use superseded runtime `runtime-git-083c730cb290a55ef2158df1f8dc0a0acc8e0b00`
